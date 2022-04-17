@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | University of CambridgeLogin Page</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/8/8a/University_of_Cambridge_coat_of_arms.svg">
+</head>
+<body>
+
+    <!-- top-bar -->
+    <div class="topbar">
+        <div>
+            <span class="box text">Admission Test-2021 (Last date to apply 21th May, 2021)</span>
+        </div>
+        <span>&nbsp;&nbsp;&nbsp;</span>
+        <div>
+            <span><b><a href="form.html" class="box link">Apply Now →</a></b></span>
+        </div>
+    </div>
+
+    <!-- main-menu -->
+    <div class="mainmenu">
+        <div class="logo">
+            <img src="../resources/college-logo.png"/ height="52px" onclick="window.open('index.html','_self')">
+        </div>
+        <div>
+            <span>
+                <button class="box button" onclick="window.open('about_us.html','_self')">About Us</button>
+            </span>
+            <span>
+                <button class="box button" onclick="window.open('academics.html','_self')">Academics</button>
+            </span>
+            <span>
+                <button class="box button" onclick="window.open('news.html','_self')">News</button>
+            </span>
+            <span>
+                <button class="box button" onclick="window.open('placements.html','_self')">Placements</button>
+            </span>
+            <span>
+                <button class="box button" onclick="window.open('gallery.html','_self')">Gallery</button>
+            </span>
+            <span>
+                <button class="box button" onclick="window.open('campus_life.html','_self')">Campus Life</button>
+            </span>
+            <span>
+                <button class="box button" onclick="window.open('view_data.html','_self')">Students</button>
+            </span>
+        </div>     
+        <div>
+            <button id="login" class="box button2" onclick="goToLogin()" onmouseover="mouseIn()" onmouseout="mouseOut()">Login</button>
+        </div>
+    </div>
+    <!-- login -->
+    <div class="background-login">
+        <div class="login-container">
+            <div class="form-heading">
+                <img src="../resources/admission_form2.png" width="60px">
+                &nbsp;&nbsp;&nbsp;LOGIN
+            </div>
+            <div class="form-content">
+                <form>
+                    <label class="label-tag" for="username">Username</label><br/>
+                    <input class="input" type="text" id="username" name="username" autocomplete="off" placeholder="admin"><br/><br/>
+                    <label class="label-tag" for="password">Password</label><br/>
+                    <input class="input" type="password" id="password" name="password" autocomplete="off" placeholder="admin"><br/><br/><br/>
+                    <div class="form-content">
+                        <a class="submit" onclick="login(event)">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>  
+
+    <!-- bottom-section -->
+    <div class="bottom-section">
+        <div class="column-container">
+            <div class="column">
+                <div class="bottom-heading">
+                    <div>PARENTS</div>
+                </div>
+                <div class="bottom-content">
+                    <div>Counselling Division</div><br>
+                    <div>Hotels in England</div><br>
+                    <div>Guest House</div><br>
+                    <div>Parent Login</div><br>
+                    <div>Programmes Offered</div><br>
+                </div>
+            </div>
+            <div class="column">
+                <div class="bottom-heading">
+                    <div>UNIVERSITY STUDENTS</div>
+                </div>
+                <div class="bottom-content">
+                    <div>People Orbit</div><br>
+                    <div>General Grievance Redressal Committee</div><br>
+                    <div>Institute of Emminence (IoE)</div><br>
+                    <div>Anti Ragging Committee</div><br>
+                    <div>Industrial Visit(Format & Guidelines)</div><br>
+                    <div>NATS [National Apprenticeship Training Scheme]</div><br>
+                </div>
+            </div>
+            <div class="column">
+                <div class="bottom-heading">
+                    <div>OTHER LINKS</div>
+                </div>
+                <div class="bottom-content">
+                    <div>Right to Information</div><br>
+                    <div>About Research at Cambridge</div><br>
+                    <div>Safety</div><br>
+                    <div>Courses in Education</div><br>
+                    <div>Programmes Offered</div><br>
+                </div>  
+            </div>
+        </div>
+        <div class="social-links">
+            <div class="social-content-text">FOLLOW US:</div>
+            <div class="social-content-img"><img src="../resources/twitter.svg" width="20px"></div>
+            <div class="social-content-img"><img src="../resources/facebook.svg" width="20px"></div>
+            <div class="social-content-img"><img src="../resources/linkedin.svg" width="20px"></div>
+            <div class="social-content-img"><img src="../resources/instagram.svg" width="20px"></div>
+            <div class="social-content-img"><img src="../resources/github.svg" width="20px"></div>
+            <div class="social-content-img"><img src="../resources/youtube.svg" width="20px"></div>
+        </div>
+        <div class="footer">
+            <div class="footer-content">© 2021 by University of Cambridge</div>
+            <div class="footer-content">Privacy Policy</div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../static/index.js"></script>  
+</body>
+</html>
