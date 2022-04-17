@@ -1,0 +1,7 @@
+roll_no,email_id,password,name,gender,dob,semester,branch,cgpa,contact_no,parent_contact_number,registration,fee_payment,profile_photo,receipt_no,verification
+BT20CSE019,bt20cse019@iiitn.ac.in,bt20cse019,Piyush Agrawal,Male,29/02/2004,4,CSE,8.2,7723857245,9300776709,NO,NO PAY,,,NO
+BT20CSE049,bt20cse049@iiitn.ac.in,bt20cse049,Sandeep Kumar Tangirala,Male,25/04/2002,4,CSE,8.5,9566936980,9632175296,NO,NO PAY,,,NO
+BT20CSE133,bt20cse133@iiitn.ac.in,bt20cse133,Achyut S hirgaonkar,Male,13/03/2002,4,CSE,8,9301958936,8989898989,NO,NO PAY,,,NO
+BT20CSE059,bt20cse059@iiitn.ac.in,bt20cse059,Prashobh,Male,08/12/2001,4,CSE,8,9024099626,8875783621,NO,NO PAY,,,NO
+BT20CSE151,bt20cse151@iiitn.ac.in,bt20cse151,Aditya,Male,13/02/2003,4,CSE,8.8,9325117443,9226748357,NO,NO PAY,,,NO
+BT20CSE101,bt20cse101@iiitn.ac.in,bt20cse101,Shreyansh,Male,11/12/2003,4,CSE,7.8,6391615038,9838948920,NO,NO PAY,,,NO
