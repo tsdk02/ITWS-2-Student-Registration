@@ -149,16 +149,16 @@ app.get("/authenticatedUser", (req, res)=>{
 	}
 })
 
-app.get("/getUserData", (req, res)=>{
-	// console.log(req.user)
-	if(req.user){
-		res.status(200).json({authenticatedUser: req.user})
-	}
-	else{
-		res.status(404).json({authenticatedUser: "none"})
+// app.get("/getUserData", (req, res)=>{
+// 	// console.log(req.user)
+// 	if(req.user){
+// 		res.status(200).json({authenticatedUser: req.user})
+// 	}
+// 	else{
+// 		res.status(404).json({authenticatedUser: "none"})
 
-	}
-})
+// 	}
+// })
 
 app.get("/logout", (req, res)=>{
 	req.logOut()
