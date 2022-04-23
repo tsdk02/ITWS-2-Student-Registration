@@ -14,18 +14,16 @@ const getUser = async ()=>{
             console.log(res);
             document.getElementById("student-name").innerHTML = res.authenticatedUser.name;
             document.getElementById("student-gender").innerHTML = res.authenticatedUser.gender;
-            document.getElementById("student-dob").innerHTML = res.authenticatedUser.dob;
+            document.getElementById("student-dob").innerHTML = res.authenticatedUser.dob.substring(0,10);
             document.getElementById("student-id").innerHTML = res.authenticatedUser.roll_no;
             document.getElementById("student-grade").innerHTML = res.authenticatedUser.semester;
             document.getElementById("student-section").innerHTML = res.authenticatedUser.branch;
-            // document.getElementById("physics").innerHTML = resp.student[0].phy;
-            // document.getElementById("chemistry").innerHTML = resp.student[0].chem;
-            // document.getElementById("mathematics").innerHTML = resp.student[0].ma;
-            // document.getElementById("computer").innerHTML = resp.student[0].comp;
-            // document.getElementById("english").innerHTML = resp.student[0].eng;
-            // document.getElementById("total").innerHTML = resp.student[0].total;
-            // document.getElementById("percentage-data").innerHTML = resp.student[0].percent;
-            // document.getElementById("status-data").innerHTML = resp.student[0].status;
+            document.getElementById("student-email-id").innerHTML = res.authenticatedUser.email_id;
+            document.getElementById("student-contact-no").innerHTML = res.authenticatedUser.contact_no;
+            document.getElementById("parent-contact-no").innerHTML = res.authenticatedUser.parent_contact_number;
+            document.getElementById("student-cgpa").innerHTML = res.authenticatedUser.cgpa;
+            
+         
             // if(resp.student[0].status == "Pass"){
             //     document.getElementById("status-data").style.color = "green";
             // }
