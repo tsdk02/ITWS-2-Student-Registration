@@ -8,7 +8,7 @@ const cors = require("cors")
 const bcrypt			= require('bcrypt');
 const passportStrategy = require("./passportConfig.js")
 const app				= express();
-
+const User = require('./models/User.js')
 
 
 // app.use(express.urlencoded({ extended: false }));
@@ -145,10 +145,24 @@ app.get("/authenticatedUser", (req, res)=>{
 	}
 	else{
 		res.status(404).json({authenticatedUser: null})
-
 	}
 })
-
+app.patch("/register_student", async (req, res)=>{
+	console.log("req.user=" + req.user.name);
+	if(req.user){
+		const doc = await User.findOne({ name: req.user.name });
+		const update = { registration: "YES" };
+		await doc.updateOne(update);
+		console.log(("hello"));
+		res.status(200).json({authenticatedUser: req.user})
+		// console.log("hello in backend")
+		// req.user.registration = "YES";
+	}
+	else{
+		// console.log("hello in backend")
+		res.status(404).json({authenticatedUser: null})
+	}
+})
 // app.get("/getUserData", (req, res)=>{
 // 	// console.log(req.user)
 // 	if(req.user){

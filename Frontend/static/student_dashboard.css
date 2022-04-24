@@ -7,6 +7,11 @@
     border-radius: 500px;
     margin: 10px 20px 10px 100px;
 }
+.student-image-2 img{
+    border: 1px solid rgba(128, 128, 128, 0.13);
+    border-radius: 0px;
+    margin: 10px 20px 10px 100px;
+}
 .student-title{
     font-family: 'Open Sans', sans-serif;
     padding: 35px 0px;
@@ -15,7 +20,7 @@
     font-weight: 900;
 }
 .student-details-container{
-    margin-left: 45px;
+    /* margin-left: 45px; */
     font-family: 'Open Sans', sans-serif;
     
 }
@@ -30,6 +35,9 @@
     /* padding: 10px; */
     font-weight: 900;
     font-size: 25px;   
+}
+.margin{
+    margin: 0px 100px;
 }
 .other-details{
     /* padding: 10px 0px; */
@@ -48,6 +56,7 @@
 .center-container{
     /* border: 1px solid black; */
     display: flex;
+    margin: 0px 100px;
 }
 .table-container{
     margin: 20px 65px;
@@ -240,4 +249,80 @@ new-entry-view-data{
     display: flex;
     justify-content: center;
     margin: 50px 0px;
+}
+#registration-msg{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #c9060d;
+}
+.registration-button{
+    background-image: linear-gradient(to left, #194b09 , #64a550);
+    color: rgb(246,246,246);
+    padding: 15px 20px;
+    font-weight: bolder;
+    border: none;
+    /* margin: 25px 0px 25px 100px; */
+    border-radius: 6px;
+    width: 200px;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+#registration-btn{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* z-index: -1; */
+}
+.registration-button:hover{
+    background-image: linear-gradient(to left, #397526 , #7eb96c);
+}
+.disabled{
+    pointer-events: none;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+}
+#payment-msg{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #c9060d;
+}
+#partial-pay-btn{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#full-pay-btn{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#verify-msg{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #c9060d;
+}
+.otp-btn{
+    width: 11%;
+    padding: 12px 20px;
+    margin: 20px;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight:500;
+}
+otp-btn:focus {
+    border: 2px solid #c9060d;
+    border-radius: 10px;
+    outline: none !important;
+}
+
+.hidden{
+    display: none;
 }

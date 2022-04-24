@@ -4,8 +4,6 @@ const UserSchema = new mongoose.Schema({roll_no: {
     type: String, required: true
 },email_id: {
     type: String, required: true
-},roll_no: {
-    type: String, required: true
 },password: {
     type: String, required: true
 },name: {

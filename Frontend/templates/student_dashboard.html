@@ -73,6 +73,8 @@
                 <span>Student Details:</span>
             </div>
         </div>
+        <br>
+
         <div class="student-details-container">
             <div class="basic-details">
                 <div class="basic">
@@ -119,73 +121,48 @@
                     <span class="other-details "id="student-cgpa"></span>
                 </div>
             </div>
-            <div class="assessment-result">
-                <div>Asessment Result:</div>
-            </div>
-            <div class="center-container">
-                <div class="table-container">
-                    <table class="view-table">
-                        <tr class="view-table-row_1">
-                            <th class="view-table-th">Subject</th>
-                            <th class="view-table-th">Obtained Marks</th>
-                            <th class="view-table-th">Maximum Marks</th>
-                        </tr>
-                        <tbody class="view-table-body">
-                            <tr class="view-table-tr">
-                                <td class="view-table-td view-table-first-column">Physics</td>
-                                <td class="view-table-td" id="physics"></td>
-                                <td class="view-table-td">100</td>
-                            </tr>
-                            <tr class="view-table-tr">
-                                <td class="view-table-td view-table-first-column">Chemistry</td>
-                                <td class="view-table-td" id="chemistry"></td>
-                                <td class="view-table-td">100</td>
-                            </tr>
-                            <tr class="view-table-tr">
-                                <td class="view-table-td view-table-first-column">Mathematics</td>
-                                <td class="view-table-td" id="mathematics"></td>
-                                <td class="view-table-td">100</td>
-                            </tr>
-                            <tr class="view-table-tr">
-                                <td class="view-table-td view-table-first-column">Computer</td>
-                                <td class="view-table-td" id="computer"></td>
-                                <td class="view-table-td">100</td>
-                            </tr>
-                            <tr class="view-table-tr">
-                                <td class="view-table-td view-table-first-column">English</td>
-                                <td class="view-table-td" id="english"></td>
-                                <td class="view-table-td">100</td>
-                            </tr>
-                        </tbody>
-                        <tr class="view-table-row_1">
-                            <th class="view-table-th">Total</th>
-                            <th class="view-table-th" id="total"></th>
-                            <th class="view-table-th">500</th>
-                        </tr>
-                    </table>
+            <br><br>
+            <div class="student-details-heading">
+                <div class="student-image-2">
+                    <img class="student-image" src="../resources/admission_form2.png" width="100px">
                 </div>
-                <div class="statistics-container">
-                    <div class="percentage">
-                        <div class="percentage-heading">
-                            Perentage: 
-                        </div>
-                        <span id="percentage-data"></span>
-                        <span id="percentage-symbol">%</span>
+                <div class="student-title">
+                    <span>Registration:</span>
+                </div>
+            </div>
+            <div class="basic margin" id="registration-msg">
+            </div>
+            <br><br>
+            <div class="basic margin" id="registration-btn">
+                <button class="registration-button" onclick="hello()">Register</button>
+            </div>
+            <br><br>
+            <div class="student-details-heading">
+                <div class="student-image-2">
+                    <img class="student-image" src="../resources/payment.png" width="100px">
+                </div>
+                <div class="student-title">
+                    <span>Payment:</span>
+                </div>
+            </div>
+            <div class="basic margin" id="payment-msg">
+            </div>
+            <br><br>
+            <div class="basic margin" id="partial-pay-btn">
+                <button class="registration-button" onclick="hello()">Partial Payment</button>
+                <input class="otp-btn hidden" type="text" id="otp-box-partial" name="otp-box" placeholder="Enter the OTP" onclick="getOTP(event)">
 
-                    </div>
-                    <div class="status">
-                        <div class="status-heading">
-                            Status: 
-                        </div>
-                        <span id="status-data"></span>
-                        <span id="pass-fail-image"></span>
-                    </div>
-                    <div class="edit-delete">
-                        <button class="edit-button" onclick="editStudent(event)">Edit</button>
-                        <button class="delete-button" onclick="deleteStudent()">Delete</button>
-                    </div>
-                </div>
             </div>
+            <br><br>
+            <div class="basic margin" id="full-pay-btn">
+                <button class="registration-button" onclick="hello()">Full Payment</button>
+                <input class="otp-btn hidden" type="text" id="otp-box-full" name="otp-box" placeholder="Enter the OTP" onclick="getOTP(event)">
+
+            </div>
+            <br><br>
+            <div class="basic margin" id="verify-msg">
+            </div>
+            <br><br>
         </div>
     </div>
 
