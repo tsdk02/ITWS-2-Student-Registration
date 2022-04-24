@@ -32,7 +32,7 @@ const getUser = async ()=>{
                 document.getElementById("payment-msg").innerHTML = "Please complete the Registration first before Payment!"
                 var partial = document.getElementById("partial-pay-btn");
                 partial.classList.add("disabled");
-                partial.addEventListener("click", function(){enableOtpTextPartial()});
+                // partial.addEventListener("click", function(){enableOtpTextPartial()});
                 
                 var full = document.getElementById("full-pay-btn");
                 full.classList.add("disabled");
@@ -62,6 +62,10 @@ const getUser = async ()=>{
                 }
                 else if(res.authenticatedUser.fee_payment === "NO PAY"){
                     document.getElementById("payment-msg").innerHTML = "Please choose either Full Payment or Partial Payment!"
+                    var partial = document.getElementById("partial-pay-btn");
+                    partial.addEventListener("click", function(){enableOtpTextPartial()});
+                    var full = document.getElementById("full-pay-btn");
+                    full.addEventListener("click", function(){enableOtpTextFull()});
                 }
                 // document.getElementByClassName("disabled").disabled=true;
             }
@@ -69,11 +73,19 @@ const getUser = async ()=>{
         })
         .catch((error) => console.log(error));
 }
-function getOtp(e){
-    e.preventDefault();
+function enableOtpTextPartial(){
+    // e.preventDefault();
     console.log("hello");
     var otpBtnPartial = document.getElementById("otp-box-partial")
-    otpBtnPartial.style.display = "true";   
+    otpBtnPartial.classList.remove("hidden");  
+    // console.log(typeof otpBoxPartial);
+    // otpBoxPartial.classList.remove("hidden", 'primary'); 
+}
+function enableOtpTextFull(){
+    // e.preventDefault();
+    console.log("hello");
+    var otpBtnFull = document.getElementById("otp-box-full")
+    otpBtnFull.classList.remove("hidden");  
     // console.log(typeof otpBoxPartial);
     // otpBoxPartial.classList.remove("hidden", 'primary'); 
 }
