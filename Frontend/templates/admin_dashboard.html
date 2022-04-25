@@ -4,15 +4,14 @@
 <head>
     <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="../static/view_data.css">
-    <link rel="stylesheet" href="../static/student_dashboard.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta http-equiv = "refresh" content = "5; url = http://127.0.0.1:5500/Lab-5/login.html" /> -->
-    <title>Student Details | University of Cambridge</title>
+    <title>View Data | University of Cambridge</title>
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/8/8a/University_of_Cambridge_coat_of_arms.svg">
 </head>
-<body onload="getStudentDetails(event)">
+<body onload="checkLoginStatus(event)">
 
     <!-- top-bar -->
     <div class="topbar">
@@ -59,114 +58,48 @@
     </div>
 
     <!-- new-entry-view-data-container -->
-    <!-- <div class="new-entry-view-data">
+    <div class="new-entry-view-data">
         <br><br>
         <button class="new-entry-button" onclick="window.open('new_entry.html','_self')">New Entry</button>
         <button class="view-data-button" onclick="window.open('view_data.html','_self')">View Data</button>
-    </div> -->
-    <div id="main-details-container">
-        <div class="student-details-heading">
-            <div class="student-image">
-                <img class="student-image" src="../resources/profile.svg" width="100px">
-            </div>
-            <div class="student-title">
-                <span>Student Details:</span>
-            </div>
-        </div>
-        <br>
+    </div>
 
-        <div class="student-details-container">
-            <div class="basic-details">
-                <div class="basic">
-                    <span>Name: </span>
-                    <span class="other-details "id="student-name"></span>
+    <!-- drop-down content -->
+    <div class="view-data-form">
+        <form method="post">
+            <div class="drop-down-container">
+                <div class="drop-down-content">
+                    Select Grade and Section:
                 </div>
-                <div class="basic">
-                    <span>DOB: </span>
-                    <span class="other-details "id="student-dob"></span>
+                <div class="drop-down">
+                    <div class="form-content">
+                        <select name="grade" id="grade" >
+                            <option value="default">Grade</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="basic">
-                    <span>Enrollment No: </span>
-                    <span class="other-details "id="student-id"></span>
+                <div class="drop-down">
+                    <div class="drop-down-options">
+                        <select name="section" id="section" >
+                            <option value="default">Section</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="basic">
-                    <span>Semester: </span>
-                    <span class="other-details "id="student-grade"></span>
-                </div>
-                <div class="basic">
-                    <span>Branch: </span>
-                    <span class="other-details "id="student-section"></span>
-                </div>
-                <br>
+                <button class="get-data-button" onclick="get_data(event)">Get Data</button>
             </div>
-            <div class="basic-details">
-                <div class="basic">
-                    <span>Gender: </span>
-                    <span class="other-details "id="student-gender"></span>
-                </div>
-                <div class="basic">
-                    <span>Email-ID: </span>
-                    <span class="other-details "id="student-email-id"></span>
-                </div>
-                <div class="basic">
-                    <span>Contact No: </span>
-                    <span class="other-details "id="student-contact-no"></span>
-                </div>
-                <div class="basic">
-                    <span>Parent Contact No: </span>
-                    <span class="other-details "id="parent-contact-no"></span>
-                </div>
-                <div class="basic">
-                    <span>CGPA: </span>
-                    <span class="other-details "id="student-cgpa"></span>
-                </div>
-            </div>
-            <br><br>
-            <div class="student-details-heading">
-                <div class="student-image-2">
-                    <img class="student-image" src="../resources/admission_form2.png" width="100px">
-                </div>
-                <div class="student-title">
-                    <span>Registration:</span>
-                </div>
-            </div>
-            <div class="basic margin" id="registration-msg">
-            </div>
-            <br><br>
-            <div class="basic margin" id="registration-btn">
-                <button class="registration-button" onclick="hello()">Register</button>
-            </div>
-            <br><br>
-            <div class="student-details-heading">
-                <div class="student-image-2">
-                    <img class="student-image" src="../resources/payment.png" width="100px">
-                </div>
-                <div class="student-title">
-                    <span>Payment:</span>
-                </div>
-            </div>
-            <div class="basic margin" id="payment-msg">
-            </div>
-            <br><br>
-            <div class="basic margin" id="partial-pay-btn">
-                <button class="registration-button" id="partial-btn" onclick="hello()">Partial Payment</button>
-                <input class="otp-btn hidden" type="text" id="otp-box-partial" name="otp-box" placeholder="Enter the OTP">
-                <button class="registration-button hidden" id="partial-btn-submit" onclick="validateOTP_partial(event)">Submit</button>
+        </form>
+    </div>
+        
+    <!--view-data content  -->
+    <div class="view-data">
 
-            </div>
-            <br><br>
-            <div class="basic margin" id="full-pay-btn">
-                <button class="registration-button" onclick="hello()" id="full-btn">Full Payment</button>
-                <input class="otp-btn hidden" type="text" id="otp-box-full" name="otp-box" placeholder="Enter the OTP">
-                <button class="registration-button hidden" id="full-btn-submit" onclick="validateOTP_full(event)">Submit</button>
-
-
-            </div>
-            <br><br>
-            <div class="basic margin" id="verify-msg">
-            </div>
-            <br><br>
-        </div>
     </div>
 
     <!-- bottom-section -->
@@ -225,10 +158,7 @@
         </div>
     </div>
     <script type="text/javascript" src="../static/index.js"></script> 
-    <script type="text/javascript" src="../static/student_dashboard.js"></script> 
-
     <!-- <script type="text/javascript" src="../static/view_data.js"></script>   -->
-    <!-- <script type="text/javascript" src="../static/student_details.js"></script>   -->
 
 </body>
 </html>

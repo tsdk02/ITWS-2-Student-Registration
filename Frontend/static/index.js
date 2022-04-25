@@ -5,9 +5,11 @@ var password = "admin";
 function goToLogin(){
     window.location.replace("./login.html");
 }
-
 function goToStudentDashboard(){
     window.location.replace("./student_dashboard.html");
+}
+function goToAdminDashboard(){
+    window.location.replace("./admin_dashboard.html");
 }
 
 
@@ -15,7 +17,7 @@ function checkLoginStatus(e){
     e.preventDefault();
     if(JSON.parse(localStorage.getItem("isUserLoggedIn")) === null || JSON.parse(localStorage.getItem("isUserLoggedIn")) === false){
         localStorage.setItem("isUserLoggedIn", false);
-        window.location.replace("./login.html");
+        // window.location.replace("./login_admin.html");
     }
     else{
         console.log(document.cookie);
@@ -40,9 +42,17 @@ async function check(uname, pword) {
     })
 
     const data = await response.json()
-    console.log(data);
+    // console.log("Data is : " + uname);
 
-    goToStudentDashboard();
+    if(uname === "admin" && pword === "admin"){
+        document.cookie = "username=" + uname;
+        localStorage.setItem("isUserLoggedIn", true);
+        window.location.replace("./index.html");
+        goToAdminDashboard();
+    }else{
+        goToStudentDashboard();
+    }
+
 }
 
 function login(e){
@@ -59,6 +69,23 @@ function login(e){
     // }
     console.log(uname + " " + pword);
     check(uname, pword);
+
+}
+
+function loginAdmin(e){
+    e.preventDefault();
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+    if(user === username && pass === password){
+        document.cookie = "username=" + user;
+        localStorage.setItem("isUserLoggedIn", true);
+        window.location.replace("./index.html");
+    }        
+    else{
+        alert("Username or password is incorrect")
+    }
+    console.log(user + " " + pass);
+    // check(uname, pword);
 
 }
 
