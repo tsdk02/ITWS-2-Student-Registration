@@ -1,0 +1,294 @@
+<!-- IT-Workshop-Project -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="stylesheet" href="../static/view_data.css" />
+    <link rel="stylesheet" href="../static/student_dashboard.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta http-equiv = "refresh" content = "5; url = http://127.0.0.1:5500/Lab-5/login.html" /> -->
+    <title>Student Details | University of Cambridge</title>
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/8/8a/University_of_Cambridge_coat_of_arms.svg"
+    />
+  </head>
+  <body onload="verification(event)">
+    <!-- top-bar -->
+    <div class="topbar">
+      <div>
+        <span class="box text"
+          >Admission Test-2021 (Last date to apply 21th May, 2021)</span
+        >
+      </div>
+      <span>&nbsp;&nbsp;&nbsp;</span>
+      <div>
+        <span
+          ><b><a href="./form.html" class="box link">Apply Now →</a></b></span
+        >
+      </div>
+    </div>
+
+    <!-- main-menu -->
+    <div class="mainmenu">
+      <div class="logo">
+        <img src="../resources/college-logo.png"/ height="52px"
+        onclick="window.open('index.html','_self')">
+      </div>
+      <div>
+        <span>
+          <button
+            class="box button"
+            onclick="window.open('about_us.html','_self')"
+          >
+            About Us
+          </button>
+        </span>
+        <span>
+          <button
+            class="box button"
+            onclick="window.open('academics.html','_self')"
+          >
+            Academics
+          </button>
+        </span>
+        <span>
+          <button class="box button" onclick="window.open('news.html','_self')">
+            News
+          </button>
+        </span>
+        <span>
+          <button
+            class="box button"
+            onclick="window.open('placements.html','_self')"
+          >
+            Placements
+          </button>
+        </span>
+        <span>
+          <button
+            class="box button"
+            onclick="window.open('gallery.html','_self')"
+          >
+            Gallery
+          </button>
+        </span>
+        <span>
+          <button
+            class="box button"
+            onclick="window.open('campus_life.html','_self')"
+          >
+            Campus Life
+          </button>
+        </span>
+        <span>
+          <button
+            class="box button"
+            onclick="window.open('view_data.html','_self')"
+          >
+            Students
+          </button>
+        </span>
+      </div>
+      <div>
+        <button
+          id="login"
+          class="box button2"
+          onclick="goToLogin()"
+          onmouseover="mouseIn()"
+          onmouseout="mouseOut()"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+
+    <div class="new-entry-view-data">
+      <br /><br />
+      <!-- <button class="new-entry-button" onclick="window.open('new_entry.html','_self')">New Entry</button> -->
+      <button
+        class="view-data-button"
+        onclick="window.open('view_data.html','_self')"
+      >
+        View Data
+      </button>
+    </div>
+    <div id="main-details-container">
+      <div class="student-details-heading">
+        <div class="student-image">
+          <img
+            class="student-image"
+            src="../resources/profile.svg"
+            width="100px"
+          />
+        </div>
+        <div class="student-title">
+          <span>Student Details:</span>
+        </div>
+      </div>
+      <br />
+
+      <div class="student-details-container">
+        <div class="basic-details">
+          <div class="basic">
+            <span>Name: </span>
+            <span class="other-details" id="student-name"></span>
+          </div>
+          <div class="basic">
+            <span>DOB: </span>
+            <span class="other-details" id="student-dob"></span>
+          </div>
+          <div class="basic">
+            <span>Enrollment No: </span>
+            <span class="other-details" id="student-id"></span>
+          </div>
+          <div class="basic">
+            <span>Semester: </span>
+            <span class="other-details" id="student-grade"></span>
+          </div>
+          <div class="basic">
+            <span>Branch: </span>
+            <span class="other-details" id="student-section"></span>
+          </div>
+          <br />
+        </div>
+        <div class="basic-details">
+          <div class="basic">
+            <span>Gender: </span>
+            <span class="other-details" id="student-gender"></span>
+          </div>
+          <div class="basic">
+            <span>Email-ID: </span>
+            <span class="other-details" id="student-email-id"></span>
+          </div>
+          <div class="basic">
+            <span>Contact No: </span>
+            <span class="other-details" id="student-contact-no"></span>
+          </div>
+          <div class="basic">
+            <span>Parent Contact No: </span>
+            <span class="other-details" id="parent-contact-no"></span>
+          </div>
+          <div class="basic">
+            <span>CGPA: </span>
+            <span class="other-details" id="student-cgpa"></span>
+          </div>
+        </div>
+        <br /><br />
+        <div class="student-details-heading">
+          <div class="student-image-2">
+            <img
+              class="student-image"
+              src="../resources/admission_form2.png"
+              width="100px"
+            />
+          </div>
+          <div class="student-title">
+            <span>Verification:</span>
+          </div>
+        </div>
+        <div class="basic margin" id="registration-msg"></div>
+        <br /><br />
+        <div class="basic margin" id="registration-btn">
+          <button class="registration-button" id="verify-button" onclick="verifyStudent(event)">Verify Student
+          </button>
+        </div>
+        <br /><br />
+      </div>
+    </div>
+
+    <!-- bottom-section -->
+    <div class="bottom-section">
+      <div class="column-container">
+        <div class="column">
+          <div class="bottom-heading">
+            <div>PARENTS</div>
+          </div>
+          <div class="bottom-content">
+            <div>Counselling Division</div>
+            <br />
+            <div>Hotels in England</div>
+            <br />
+            <div>Guest House</div>
+            <br />
+            <div>Parent Login</div>
+            <br />
+            <div>Programmes Offered</div>
+            <br />
+          </div>
+        </div>
+        <div class="column">
+          <div class="bottom-heading">
+            <div>UNIVERSITY STUDENTS</div>
+          </div>
+          <div class="bottom-content">
+            <div>People Orbit</div>
+            <br />
+            <div>General Grievance Redressal Committee</div>
+            <br />
+            <div>Institute of Emminence (IoE)</div>
+            <br />
+            <div>Anti Ragging Committee</div>
+            <br />
+            <div>Industrial Visit(Format & Guidelines)</div>
+            <br />
+            <div>NATS [National Apprenticeship Training Scheme]</div>
+            <br />
+          </div>
+        </div>
+        <div class="column">
+          <div class="bottom-heading">
+            <div>OTHER LINKS</div>
+          </div>
+          <div class="bottom-content">
+            <div>Right to Information</div>
+            <br />
+            <div>About Research at Cambridge</div>
+            <br />
+            <div>Safety</div>
+            <br />
+            <div>Courses in Education</div>
+            <br />
+            <div>Programmes Offered</div>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="social-links">
+        <div class="social-content-text">FOLLOW US:</div>
+        <div class="social-content-img">
+          <img src="../resources/twitter.svg" width="20px" />
+        </div>
+        <div class="social-content-img">
+          <img src="../resources/facebook.svg" width="20px" />
+        </div>
+        <div class="social-content-img">
+          <img src="../resources/linkedin.svg" width="20px" />
+        </div>
+        <div class="social-content-img">
+          <img src="../resources/instagram.svg" width="20px" />
+        </div>
+        <div class="social-content-img">
+          <img src="../resources/github.svg" width="20px" />
+        </div>
+        <div class="social-content-img">
+          <img src="../resources/youtube.svg" width="20px" />
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-content">© 2021 by University of Cambridge</div>
+        <div class="footer-content">Privacy Policy</div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../static/index.js"></script>
+    <script
+      type="text/javascript"
+      src="../static/student_dashboard.js"
+    ></script>
+
+    <!-- <script type="text/javascript" src="../static/view_data.js"></script>   -->
+    <!-- <script type="text/javascript" src="../static/student_details.js"></script>   -->
+  </body>
+</html>

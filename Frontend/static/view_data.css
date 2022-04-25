@@ -95,6 +95,7 @@ select{
     justify-content: space-evenly;
     margin: 30px 0px;
     border-collapse:collapse;
+
 }
 .view-data-row_1{
     background-color: #991f23;
@@ -105,7 +106,7 @@ select{
     text-align: center;
 }
 .view-data-td{
-    width: 115px;
+    width: 145px;
     height: 70px;
     border: 1px solid black;
     align-items: center;

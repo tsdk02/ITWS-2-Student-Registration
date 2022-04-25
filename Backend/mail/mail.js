@@ -3,7 +3,7 @@ const dotenv = require("dotenv")
 
 dotenv.config({path: "../.env"})
 
-console.log(process.env.EMAIL, process.env.EMAIL_PASSWORD);
+// console.log(process.env.EMAIL, process.env.EMAIL_PASSWORD);
 
  const sendMail = async (mailTo, mailSubject, mailText, mailHtml) => {
   try {
