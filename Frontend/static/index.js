@@ -3,10 +3,7 @@ var username = "admin";
 var password = "admin";
 
 function goToLogin(){
-    if(JSON.parse(localStorage.getItem("isUserLoggedIn")) === true){
-        localStorage.setItem("isUserLoggedIn", false);
-        window.location.replace("./login.html");
-    }
+    window.location.replace("./login.html");
 }
 
 function goToStudentDashboard(){
@@ -72,14 +69,24 @@ document.onkeydown=function(e){
     }
 }
 
-function mouseIn(){
+function mouseInStudent(){
     // console.log("Mouse In");
-    var element = document.getElementById("login");
+    var element = document.getElementById("student-login");
+    element.setAttribute("class", "box button2 hover");
+}
+function mouseInAdmin(){
+    // console.log("Mouse In");
+    var element = document.getElementById("admin-login");
     element.setAttribute("class", "box button2 hover");
 }
 
-function mouseOut(){
+function mouseOutStudent(){
     // console.log("Mouse Out");
-    var element = document.getElementById("login");
+    var element = document.getElementById("student-login");
+    element.classList.remove("hover");
+}
+function mouseOutAdmin(){
+    // console.log("Mouse Out");
+    var element = document.getElementById("admin-login");
     element.classList.remove("hover");
 }

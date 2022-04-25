@@ -10,7 +10,7 @@
     <title>Home | University of Cambridge</title>
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/8/8a/University_of_Cambridge_coat_of_arms.svg">
 </head>
-<body onload="checkLoginStatus(event)">
+<body >
 
     <!-- top-bar -->
     <div class="topbar">
@@ -52,7 +52,14 @@
             </span>
         </div>     
         <div>
-            <button id="login" class="box button2" onclick="goToLogin()" onmouseover="mouseIn()" onmouseout="mouseOut()">Login</button>
+            <button id="student-login" class="box button2" onclick="goToLogin()" onmouseover="mouseInStudent()" onmouseout="mouseOutStudent()">Student Login</button>
+            <!-- <button id="login" class="box button2" onclick="goToLogin()" onmouseover="mouseIn()" onmouseout="mouseOut()">Admin Login</button> -->
+
+        </div>
+        <div>
+            <!-- <button id="login" class="box button2" onclick="goToLogin()" onmouseover="mouseIn()" onmouseout="mouseOut()">Student Login</button> -->
+            <button id="admin-login" class="box button2" onclick="goToLogin()" onmouseover="mouseInAdmin()" onmouseout="mouseOutAdmin()">Admin Login</button>
+
         </div>
     </div>
 

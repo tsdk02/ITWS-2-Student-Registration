@@ -58,14 +58,18 @@ const getUser = async ()=>{
                 else if(res.authenticatedUser.fee_payment === "PARTIAL PAY"){
                     var full = document.getElementById("full-pay-btn");
                     full.classList.add("disabled");
+                    var partial = document.getElementById("partial-pay-btn");
+                    partial.addEventListener("click", function(){generateOTP_partial()});
                     document.getElementById("verify-msg").innerHTML = "Partial Payment is successful.  Please complete the remaining payment!"
                 }
                 else if(res.authenticatedUser.fee_payment === "NO PAY"){
                     document.getElementById("payment-msg").innerHTML = "Please choose either Full Payment or Partial Payment!"
-                    var partial = document.getElementById("partial-pay-btn");
+                    var partial = document.getElementById("partial-btn");
                     partial.addEventListener("click", function(){enableOtpTextPartial()});
-                    var full = document.getElementById("full-pay-btn");
+                    partial.addEventListener("click", function(){generateOTP_partial()});
+                    var full = document.getElementById("full-btn");
                     full.addEventListener("click", function(){enableOtpTextFull()});
+                    full.addEventListener("click", function(){generateOTP_full()});
                 }
                 // document.getElementByClassName("disabled").disabled=true;
             }
@@ -73,11 +77,19 @@ const getUser = async ()=>{
         })
         .catch((error) => console.log(error));
 }
+
 function enableOtpTextPartial(){
     // e.preventDefault();
     console.log("hello");
     var otpBtnPartial = document.getElementById("otp-box-partial")
     otpBtnPartial.classList.remove("hidden");  
+    var submit = document.getElementById("partial-btn-submit");
+    submit.classList.remove("hidden");
+    var partial = document.getElementById("partial-btn");
+    partial.classList.add("disabled");
+    var full = document.getElementById("full-btn");
+    full.classList.add("disabled");
+    full.classList.add("hidden");
     // console.log(typeof otpBoxPartial);
     // otpBoxPartial.classList.remove("hidden", 'primary'); 
 }
@@ -86,15 +98,52 @@ function enableOtpTextFull(){
     console.log("hello");
     var otpBtnFull = document.getElementById("otp-box-full")
     otpBtnFull.classList.remove("hidden");  
+    var submit = document.getElementById("full-btn-submit");
+    submit.classList.remove("hidden");
+    var partial = document.getElementById("partial-btn");
+    partial.classList.add("disabled");
+    var full = document.getElementById("full-btn");
+    full.classList.add("disabled");
+    partial.classList.add("hidden");
+
     // console.log(typeof otpBoxPartial);
     // otpBoxPartial.classList.remove("hidden", 'primary'); 
+}
+var otp;
+function generateOTP_partial(){
+    // e.preventDefault();
+    otp = Math.floor(Math.random() * (10000 - 1000) ) + 1000;
+    console.log(otp);
+    getOTP_partial(otp);
+}
+
+function generateOTP_full(){
+    // e.preventDefault();
+    otp = Math.floor(Math.random() * (10000 - 1000) ) + 1000;
+    console.log(otp);
+    getOTP_full(otp);
+}
+
+function getOTP_partial(){
+    // e.preventDefault();
+    var userOTP = document.getElementById("otp-box-partial").value;
+    console.log(userOTP);
+    console.log(otp);
+
+}
+function getOTP_full(){
+    // e.preventDefault();
+    var userOTP = document.getElementById("otp-box-full").value;
+    console.log(userOTP);
+    console.log(otp);
+
+
 }
 function updateRegistration(roll_no){
     // e.preventDefault();
     console.log(roll_no);
     register();
 }
-    
     
 const register = async ()=>{
     const res = await fetch ("http://localhost:4009/register_student", {credentials: "include", method: "PATCH"})

@@ -21,6 +21,7 @@
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
     "mongoose": "^6.3.1",
+    "nodemailer": "^6.7.3",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0"
   }
