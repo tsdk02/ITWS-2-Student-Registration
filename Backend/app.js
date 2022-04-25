@@ -9,8 +9,10 @@ const bcrypt			= require('bcrypt');
 const passportStrategy = require("./passportConfig.js")
 const app				= express();
 const User = require('./models/User.js')
-
-
+const nodemailer = require("nodemailer");
+const dotenv = require("dotenv");
+dotenv.config({path: "./.env"})
+const sendMail = require("./mail/mail.js")
 // app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors({origin: "http://127.0.0.1:5500", credentials: true}))
@@ -163,6 +165,54 @@ app.patch("/register_student", async (req, res)=>{
 		res.status(404).json({authenticatedUser: null})
 	}
 })
+
+console.log(process.env.EMAIL_PASSWORD);
+
+app.post("/send", async (req, res) => {
+	console.log(req.body);
+	sendMail(req.user.email_id, "OTP", "wow", `<p>your otp is ${req.body.otp}</p>` )
+	.then(res=>console.log(res))
+	.catch(err=>console.log(err))
+
+	res.status(200).json({message: "email sent"})
+	// const output = `<h1>New Message</h1>
+	// <hr/>
+	// <p>Sent by ${req.body.email}</p>
+	// <p> The message is as follows :</p>
+	// <b>${req.body.message}</b>
+	// <br/>
+	// `;
+  
+	// try {
+	//   let transporter = nodemailer.createTransport({
+	// 	service: "gmail",
+	// 	auth: {
+	// 	  user: process.env.EMAIL, // generated ethereal user
+	// 	  pass: process.env.EMAIL_PASSWORD, // generated ethereal password
+	// 	},
+	//   });
+  
+	//   // send mail with defined transport object
+	//   transporter.sendMail(
+	// 	{
+	// 	  from: `"Mail from SN Website" <${process.env.EMAIL}>`, // sender address
+	// 	  to: `${process.env.EMAIL}`, // list of receivers
+	// 	  subject: "New Mail From SN Website", // Subject line
+	// 	  html: output, // html body
+	// 	},
+	// 	(error, success) => {
+	// 	  if (error) {
+	// 		console.log(error);
+	// 	  } else {
+	// 		res.status(200).json({ message: "email has been sent" });
+	// 		console.log("Email sent: " + success.response);
+	// 	  }
+	// 	}
+	//   );
+	// } catch (error) {
+	//   console.log(error);
+	// }
+  });
 // app.get("/getUserData", (req, res)=>{
 // 	// console.log(req.user)
 // 	if(req.user){

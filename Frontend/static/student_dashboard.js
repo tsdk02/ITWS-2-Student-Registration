@@ -78,6 +78,22 @@ const getUser = async ()=>{
         .catch((error) => console.log(error));
 }
 
+async function sendEmail(otp) {
+    const args = {
+        otp: otp,
+    };
+    const response = await fetch("http://localhost:4009/send", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(args),
+    })
+    .then()
+
+}
+
 function enableOtpTextPartial(){
     // e.preventDefault();
     console.log("hello");
@@ -115,6 +131,8 @@ function generateOTP_partial(){
     otp = Math.floor(Math.random() * (10000 - 1000) ) + 1000;
     console.log(otp);
     getOTP_partial(otp);
+    sendEmail(otp);
+
 }
 
 function generateOTP_full(){
@@ -128,7 +146,6 @@ function getOTP_partial(){
     // e.preventDefault();
     var userOTP = document.getElementById("otp-box-partial").value;
     console.log(userOTP);
-    console.log(otp);
 
 }
 function getOTP_full(){
@@ -136,7 +153,8 @@ function getOTP_full(){
     var userOTP = document.getElementById("otp-box-full").value;
     console.log(userOTP);
     console.log(otp);
-
+    sendEmail();
+    
 
 }
 function updateRegistration(roll_no){
