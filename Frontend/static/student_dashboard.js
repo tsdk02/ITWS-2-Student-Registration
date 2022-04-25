@@ -56,10 +56,14 @@ const getUser = async ()=>{
                     }
                 }
                 else if(res.authenticatedUser.fee_payment === "PARTIAL PAY"){
-                    var full = document.getElementById("full-pay-btn");
-                    full.classList.add("disabled");
+                    var full = document.getElementById("full-btn");
+                    // full.classList.add("hidden");
+                    full.innerHTML="Remaining Payment"
                     var partial = document.getElementById("partial-pay-btn");
-                    partial.addEventListener("click", function(){generateOTP_partial()});
+                    partial.classList.add("hidden");
+                    full.addEventListener("click", function(){enableOtpTextFull()});
+                    // partial.addEventListener("click", function(){generateOTP_partial()});
+                    full.addEventListener("click", function(){generateOTP_full()});
                     document.getElementById("verify-msg").innerHTML = "Partial Payment is successful.  Please complete the remaining payment!"
                 }
                 else if(res.authenticatedUser.fee_payment === "NO PAY"){
@@ -90,9 +94,9 @@ async function sendEmail(otp) {
         },
         body: JSON.stringify(args),
     })
-    .then()
 
 }
+
 
 function enableOtpTextPartial(){
     // e.preventDefault();
@@ -130,33 +134,76 @@ function generateOTP_partial(){
     // e.preventDefault();
     otp = Math.floor(Math.random() * (10000 - 1000) ) + 1000;
     console.log(otp);
-    getOTP_partial(otp);
     sendEmail(otp);
-
+    // validateOTP(otp);
+    
 }
 
 function generateOTP_full(){
     // e.preventDefault();
     otp = Math.floor(Math.random() * (10000 - 1000) ) + 1000;
     console.log(otp);
-    getOTP_full(otp);
+    sendEmail(otp);
+    // validateOTP(otp);
 }
 
-function getOTP_partial(){
+function validateOTP_partial(){
     // e.preventDefault();
     var userOTP = document.getElementById("otp-box-partial").value;
-    console.log(userOTP);
-
+    // console.log(userOTP);
+    // console.log(userOTP, otp)
+    if(userOTP == otp){
+        updatePayment_partial();
+    }
 }
-function getOTP_full(){
+
+function validateOTP_full(){
     // e.preventDefault();
     var userOTP = document.getElementById("otp-box-full").value;
-    console.log(userOTP);
-    console.log(otp);
-    sendEmail();
-    
+    // console.log(userOTP);
+    // console.log(userOTP, otp)
+    if(userOTP == otp){
+        updatePayment_full();
+    }
+}
+
+
+const updatePayment_partial = async ()=>{
+    const res = await fetch ("http://localhost:4009/partial_payment", {credentials: "include", method: "PATCH"})
+
+    const data = await res.json() 
+    // console.log(data);
+    // console.log("hello");
+    .then((res) => {
+        console.log(res.authenticatedUser.fee_payment);
+        goToStudentDashboard();
+    })
 
 }
+
+const updatePayment_full = async ()=>{
+    const res = await fetch ("http://localhost:4009/full_payment", {credentials: "include", method: "PATCH"})
+
+    const data = await res.json() 
+    // console.log(data);
+    // console.log("hello");
+    .then((res) => {
+        console.log(res.authenticatedUser.fee_payment);
+        goToStudentDashboard();
+    })
+
+}
+
+function validateOTP_fulll(){
+    // e.preventDefault();
+    var userOTP = document.getElementById("otp-box-full").value;
+    // console.log(userOTP);
+    // console.log(userOTP, otp)
+    if(userOTP == otp){
+        updatePayment_full();
+    }
+}
+
 function updateRegistration(roll_no){
     // e.preventDefault();
     console.log(roll_no);

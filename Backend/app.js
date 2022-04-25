@@ -166,6 +166,41 @@ app.patch("/register_student", async (req, res)=>{
 	}
 })
 
+app.patch("/partial_payment", async (req, res)=>{
+	console.log("req.user=" + req.user.name);
+	if(req.user){
+		const doc = await User.findOne({ name: req.user.name });
+		const update = { fee_payment: "PARTIAL PAY" };
+		await doc.updateOne(update);
+		console.log(("hello"));
+		res.status(200).json({authenticatedUser: req.user})
+		// console.log("hello in backend")
+		// req.user.registration = "YES";
+	}
+	else{
+		// console.log("hello in backend")
+		res.status(404).json({authenticatedUser: null})
+	}
+})
+
+app.patch("/full_payment", async (req, res)=>{
+	console.log("req.user=" + req.user.name);
+	if(req.user){
+		const doc = await User.findOne({ name: req.user.name });
+		const update = { fee_payment: "FULL PAY" };
+		await doc.updateOne(update);
+		console.log(("hello"));
+		res.status(200).json({authenticatedUser: req.user})
+		// console.log("hello in backend")
+		// req.user.registration = "YES";
+	}
+	else{
+		// console.log("hello in backend")
+		res.status(404).json({authenticatedUser: null})
+	}
+})
+
+
 console.log(process.env.EMAIL_PASSWORD);
 
 app.post("/send", async (req, res) => {
@@ -175,54 +210,9 @@ app.post("/send", async (req, res) => {
 	.catch(err=>console.log(err))
 
 	res.status(200).json({message: "email sent"})
-	// const output = `<h1>New Message</h1>
-	// <hr/>
-	// <p>Sent by ${req.body.email}</p>
-	// <p> The message is as follows :</p>
-	// <b>${req.body.message}</b>
-	// <br/>
-	// `;
-  
-	// try {
-	//   let transporter = nodemailer.createTransport({
-	// 	service: "gmail",
-	// 	auth: {
-	// 	  user: process.env.EMAIL, // generated ethereal user
-	// 	  pass: process.env.EMAIL_PASSWORD, // generated ethereal password
-	// 	},
-	//   });
-  
-	//   // send mail with defined transport object
-	//   transporter.sendMail(
-	// 	{
-	// 	  from: `"Mail from SN Website" <${process.env.EMAIL}>`, // sender address
-	// 	  to: `${process.env.EMAIL}`, // list of receivers
-	// 	  subject: "New Mail From SN Website", // Subject line
-	// 	  html: output, // html body
-	// 	},
-	// 	(error, success) => {
-	// 	  if (error) {
-	// 		console.log(error);
-	// 	  } else {
-	// 		res.status(200).json({ message: "email has been sent" });
-	// 		console.log("Email sent: " + success.response);
-	// 	  }
-	// 	}
-	//   );
-	// } catch (error) {
-	//   console.log(error);
-	// }
+	
   });
-// app.get("/getUserData", (req, res)=>{
-// 	// console.log(req.user)
-// 	if(req.user){
-// 		res.status(200).json({authenticatedUser: req.user})
-// 	}
-// 	else{
-// 		res.status(404).json({authenticatedUser: "none"})
 
-// 	}
-// })
 
 app.get("/logout", (req, res)=>{
 	req.logOut()
